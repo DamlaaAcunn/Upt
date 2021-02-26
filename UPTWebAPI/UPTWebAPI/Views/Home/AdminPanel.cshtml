@@ -1,0 +1,244 @@
+﻿
+@{
+    ViewBag.Title = "AdminPanel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    .zui-table {
+        border: solid 1px #DDEEEE;
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        font: normal 13px Arial, sans-serif;
+    }
+
+        .zui-table thead th {
+            background-color: #DDEFEF;
+            border: solid 1px #DDEEEE;
+            color: #336B6B;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .zui-table tbody td {
+            border: solid 1px #DDEEEE;
+            color: #333;
+            padding: 10px;
+        }
+
+    .zui-table-rounded {
+        border: none;
+    }
+
+        .zui-table-rounded thead th {
+            background-color: #CFAD70;
+            border: none;
+            color: #333;
+        }
+
+            .zui-table-rounded thead th:first-child {
+                border-radius: 10px 0 0 0;
+            }
+
+            .zui-table-rounded thead th:last-child {
+                border-radius: 0 10px 0 0;
+            }
+
+        .zui-table-rounded tbody td {
+            border: none;
+            border-top: solid 1px #957030;
+            background-color: #EED592;
+        }
+
+        .zui-table-rounded tbody tr:last-child td:first-child {
+            border-radius: 0 0 0 10px;
+        }
+
+        .zui-table-rounded tbody tr:last-child td:last-child {
+            border-radius: 0 0 10px 0;
+        }
+</style>
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <table id="tblDeposit" class="zui-table zui-table-rounded">
+            <thead>
+                <tr>
+                    <th>AboneId</th>
+                    <th>Ad</th>
+                    <th>Email</th>
+                    <th>Telefon</th>
+                    <th>Vergi Numarası</th>
+                    <th>T.C Kimlik No</th>
+                    <th>Kayıt Tarihi</th>
+                    <th>Depozito</th>
+                    <th>Depozito İade</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <button type="submit" id="Deposit">Depozito İade Et</button>
+        <button type="submit" id="Close">Aboneliği Kapat</button>
+    </div>
+
+</div>
+<h2>Abone Yap</h2>
+<div class="row">
+    <div class="col-md-12">
+        Ad<input type="text" id="txtUserName" /><br />
+        Tc Kimlik No<input type="text" id="txtIdentity" /><br />
+        Müşteri Tipi
+        <select name="" id="ddCustomerType">
+            <option value="1">Bireysel</option>
+            <option value="2">Tüzel</option>
+        </select><br />
+        Abone Tipi
+        <select name="Abone Tipi" id="ddCustomerStatus">
+            <option value="1">Aktif</option>
+            <option value="2">Pasif</option>
+        </select><br />
+        Fatura Türü
+        <select name="Fatura Türü" id="ddInvoiceType">
+            <option value="1">Satış</option>
+            <option value="2">İrsaliye</option>
+        </select><br />
+        Email<input id="txtEmail" /><br />
+        Telefon <input id="txtPhone" /><br />
+        VergiNo<input id="txtTaxNumber" /><br />
+        Adres<input type="text" id="txtAdress" /><br />
+        Fatura No<input type="text" id="txtInvoiceNumber" /><br />
+        Fatura Başlığı<input type="text" id="txtInvoiceTitle" /><br />
+        Fatura Açıklama<input type="text" id="txtDescription" /><br />
+        Fiyat<input type="number" id="txtPrice" /><br />
+        Depozito<input type="number" id="txtDeposit" /><br />
+        <button type="button" id="btnCustomer">Abone Yap</button>
+    </div>
+</div>
+<br />
+<br />
+
+<div id="tblCustomerDiv" class="card-header">
+    <h2>Abone Sorgula / Aboneliği Kapat</h2>
+    <input type="text" id="Search" placeholder="Ara">
+    <table id="tblCustomer" class="zui-table zui-table-rounded">
+        <thead>
+            <tr>
+                <th>AboneId</th>
+                <th>Ad</th>
+                <th>Email</th>
+                <th>Telefon</th>
+                <th>Vergi Numarası</th>
+                <th>T.C Kimlik No</th>
+                <th>Kayıt Tarihi</th>
+                <th>Aboneliği Kapat</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<br />
+<br />
+
+<div>
+
+    <h2>Ödenmemiş Faturalar</h2>
+    <br />
+    <br />
+    T.C Kimlik No : <input type="text" id="txtIdentityNumber" />
+    <br />
+    Vergi No : <input type="text" id="txtTaxNumberInvoice" />
+
+    <button type="submit" id="btnGetInvoices"> Sorgula</button>
+    <br />
+    <br />
+    <div id="tblCustomerInvoicesDiv" class="card-header">
+
+        <table id="tblCustomerInvoices" class="zui-table zui-table-rounded">
+            <thead>
+                <tr>
+                    <th>AboneId</th>
+                    <th>FaturaId</th>
+                    <th>Ad</th>
+                    <th>Email</th>
+                    <th>Telefon</th>
+                    <th>Vergi Numarası</th>
+                    <th>T.C Kimlik No</th>
+                    <th>Fatura No</th>
+                    <th>Fatura Başlığı</th>
+                    <th>Fatura Tarihi</th>
+                    <th>Fiyat</th>
+                    <th>Fatura Öde </th>
+
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+<br />
+<div>
+    <div id="tblCustomerDiv" class="card-header">
+
+        Ödeme Türü :   <select name="Abone Tipi" id="ddPaymentTypes">
+            <option value="1">Havale</option>
+            <option value="2">EFT</option>
+            <option value="3">Nakit</option>
+            <option value="4">Kredi Kartı</option>
+            <option value="5">Sanal Kart</option>
+        </select><br />
+    </div><br />
+    <button type="submit" id="btnInvoices"> Seçilenleri Öde </button>
+</div>
+<input type="hidden" id="InvoicesId" />
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/Panel.js"></script>
+
+
+
+
+
+
+
+

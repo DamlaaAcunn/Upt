@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" id="bootstrap-4">
+    <link rel="stylesheet" href="css/main.css" id="site-view">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+    <header class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-sm-3">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <section class="page-body">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="txtPhone">Kullanıcı Adı: </label>
+                                        <input type="text" id="txtUserName" class="commPhone form-control" value="">
+                                    </div>
+
+                                    <!--class="form-control"-->
+                                    <div class="form-group">
+                                        <label for="txtEmail">Şifre: </label>
+                                        <input type="text" id="txtPassword" class="commEmail form-control">
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-6">
+
+                                        </div>
+                                        <div class="col-6">
+                                            <button type="button" id="btnSubmit">Save</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-box d-flex justify-content-between">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    $("#btnSubmit").click(function () {
+        var login = new Object();
+        login.UserName = $('#txtUserName').val();
+        login.Password = $('#txtPassword').val();
+
+        $.ajax({
+            type: "Get",
+            url: "https://localhost:44355/api/Login/GetUsers",
+            data: JSON.stringify(login),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (value) {
+                if (value.RoleID == 1) {
+                    window.location.href = '/Home/AdminPanel';
+                }
+                else {
+
+                }
+            },
+            error: function (jqXHR, exception) {
+
+            }
+        });
+
+
+    });
+
+</script>
+

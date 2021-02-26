@@ -1,0 +1,12 @@
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Model\bin\Debug\UPT.Model.dll.config
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Model\bin\Debug\UPT.Model.dll
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Model\bin\Debug\UPT.Model.pdb
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Model\bin\Debug\EntityFramework.dll
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Model\bin\Debug\EntityFramework.xml
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Model\obj\Debug\UPT.Model.csprojAssemblyReference.cache
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Model\obj\Debug\UPT.Model.csproj.CoreCompileInputs.cache
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Model\obj\Debug\UPT.Model.csproj.CopyComplete
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Model\obj\Debug\UPT.Model.dll
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Model\obj\Debug\UPT.Model.pdb

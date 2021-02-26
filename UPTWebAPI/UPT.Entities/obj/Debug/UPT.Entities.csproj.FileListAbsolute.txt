@@ -1,0 +1,13 @@
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Entities\bin\Debug\UPT.Entities.dll
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Entities\bin\Debug\UPT.Entities.pdb
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Entities\obj\Debug\UPT.Entities.csproj.CoreCompileInputs.cache
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Entities\obj\Debug\UPT.Entities.dll
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Entities\obj\Debug\UPT.Entities.pdb
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Entities\obj\Debug\UPT.Entities.csprojAssemblyReference.cache
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Entities\bin\Debug\UPT.Entities.dll.config
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Entities\bin\Debug\UPT.Model.dll
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Entities\bin\Debug\EntityFramework.dll
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Entities\bin\Debug\UPT.Model.pdb
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Entities\bin\Debug\UPT.Model.dll.config
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Entities\bin\Debug\EntityFramework.xml
+C:\Damla\Github\UPT\UPTWebAPI\UPT.Entities\obj\Debug\UPT.Entities.csproj.CopyComplete
