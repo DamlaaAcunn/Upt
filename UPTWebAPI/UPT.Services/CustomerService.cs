@@ -57,7 +57,6 @@ namespace UPT.Services
                         users.Add(user);
                     }
 
-
                 }
 
             }
