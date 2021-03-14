@@ -10,6 +10,7 @@ namespace UPT.Services
 {
     public interface IInvoicesService
     {
+        void CreateExtract();
         void InsertInvoices();
         List<UserViewModel> GetInvoices(UserViewModel userViewModel);
         List<UserViewModel> GetExtract(UserViewModel userViewModel);

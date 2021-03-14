@@ -19,14 +19,14 @@ namespace UPT.Model
         public string Title { get; set; }
         public int CustomerID { get; set; }
         public string Address { get; set; }
-        public Nullable<int> InvoiceStatusID { get; set; }
+        public int InvoiceStatusID { get; set; }
         public int InvoiceTypeID { get; set; }
-        public Nullable<int> PaymentTypeID { get; set; }
-        public Nullable<System.DateTime> PaymentDate { get; set; }
+        public int PaymentTypeID { get; set; }
+        public System.DateTime PaymentDate { get; set; }
         public Nullable<System.DateTime> PaidDate { get; set; }
         public System.DateTime CreateDateTime { get; set; }
         public int UserID { get; set; }
-        public Nullable<decimal> Price { get; set; }
+        public decimal Price { get; set; }
     
         public virtual Customers Customers { get; set; }
         public virtual InvoiceStatuses InvoiceStatuses { get; set; }

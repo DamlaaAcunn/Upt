@@ -22,7 +22,7 @@ namespace UPT.Model
         }
     
         public int CustomerID { get; set; }
-        public Nullable<int> UserID { get; set; }
+        public int UserID { get; set; }
         public string Name { get; set; }
         public string IdentityNumber { get; set; }
         public int CustomerTypeID { get; set; }
@@ -34,6 +34,7 @@ namespace UPT.Model
         public System.DateTime Register { get; set; }
     
         public virtual CustomerStatuses CustomerStatuses { get; set; }
+        public virtual CustomerTypes CustomerTypes { get; set; }
         public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Deposit> Deposit { get; set; }

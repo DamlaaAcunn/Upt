@@ -15,7 +15,7 @@ namespace UPTWebAPI
         public Task Execute(IJobExecutionContext context)
         {
             _invoicesService = GlobalConfiguration.Configuration.DependencyResolver.GetService(typeof(IInvoicesService)) as IInvoicesService;
-            _invoicesService.InsertInvoices();
+           // _invoicesService.InsertInvoices();
 
             return Task.CompletedTask;
         }

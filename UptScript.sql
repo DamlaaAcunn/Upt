@@ -25,18 +25,22 @@ CREATE TABLE [dbo].[CustomerStatuses](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
-CREATE TABLE [dbo].[InvoiceLines](
-	[InvoiceLineID] [int] IDENTITY(1,1) NOT NULL,
-	[Description] [nvarchar](128) NOT NULL,
-	[Unit] [nvarchar](16) NOT NULL,
-	[Price] [decimal](17, 4) NOT NULL,
-	[VatRatio] [decimal](17, 4) NOT NULL,
-	[InvoiceID] [int] NOT NULL,
- CONSTRAINT [PK_InvoiceLines] PRIMARY KEY CLUSTERED 
+GO
+/****** Object:  Table [dbo].[CustomerTypes]    Script Date: 21.11.2019 18:58:57 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CustomerTypes](
+	[colCustomerTypeID] [int] IDENTITY(1,1) NOT NULL,
+	[colCustomerType] [nvarchar](32) NOT NULL,
+ CONSTRAINT [PK_CustomerTypes] PRIMARY KEY CLUSTERED 
 (
-	[InvoiceLineID] ASC
+	[colCustomerTypeID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+
+
 
 CREATE TABLE [dbo].[Invoices](
 	[InvoiceID] [int] IDENTITY(1,1) NOT NULL,
@@ -87,17 +91,6 @@ CREATE TABLE [dbo].[PaymentTypes](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
-
-CREATE TABLE [dbo].[SecurityKeys](
-	[KeyID] [int] IDENTITY(1,1) NOT NULL,
-	[Key] [varchar](64) NOT NULL,
-	[UserID] [int] NOT NULL,
-	[Expire] [datetime] NOT NULL,
- CONSTRAINT [PK_SecurityKeys] PRIMARY KEY CLUSTERED 
-(
-	[KeyID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
 
 
 CREATE TABLE [dbo].[UserRoles](
@@ -153,11 +146,7 @@ REFERENCES [dbo].[CustomerTypes] ([CustomerTypeID])
 GO
 ALTER TABLE [dbo].[Customers] CHECK CONSTRAINT [FK_Customers_CustomerTypes]
 GO
-ALTER TABLE [dbo].[InvoiceLines]  WITH CHECK ADD  CONSTRAINT [FK_InvoiceLines_Invoices] FOREIGN KEY([InvoiceID])
-REFERENCES [dbo].[Invoices] ([InvoiceID])
-GO
-ALTER TABLE [dbo].[InvoiceLines] CHECK CONSTRAINT [FK_InvoiceLines_Invoices]
-GO
+
 ALTER TABLE [dbo].[Invoices]  WITH CHECK ADD  CONSTRAINT [FK_Invoices_Customers] FOREIGN KEY([CustomerID])
 REFERENCES [dbo].[Customers] ([CustomerID])
 GO

@@ -27,7 +27,7 @@ namespace UPTWebAPI.Controllers
             }
             catch (Exception excp)
             {
-
+                Console.Write(excp.Message);
             }
             return null;
         }

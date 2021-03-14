@@ -25,21 +25,28 @@ namespace UPTWebAPI.Controllers
         [HttpGet]
         public JsonResult GetUser(string UserName, string Password)
         {
-
             var login = new UserViewModel();
-            using (UPTEntities dbContext = new UPTEntities())
+            try
             {
-                var user = dbContext.Users.Where(x => x.UserName == UserName && x.Password == Password).FirstOrDefault();
-                if (user != null)
+                using (UPTEntities dbContext = new UPTEntities())
                 {
-                    login.RoleID = user.RoleID;
-                    login.UserName = user.UserName;
-                    login.Password = user.Password;
-                    login.UserId = user.UserID;
-                    Session["UserID"] = user.UserID;
-                }
+                    var user = dbContext.Users.Where(x => x.UserName == UserName && x.Password == Password).FirstOrDefault();
+                    if (user != null)
+                    {
+                        login.RoleID = user.RoleID;
+                        login.UserName = user.UserName;
+                        login.Password = user.Password;
+                        login.UserId = user.UserID;
+                        Session["UserID"] = user.UserID;
+                    }
 
+                }
             }
+            catch (Exception exp)
+            {
+                Console.Write(exp.Message);
+            }
+
             return Json(login, JsonRequestBehavior.AllowGet);
         }
         public ActionResult AdminPanel()

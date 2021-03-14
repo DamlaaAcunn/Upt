@@ -19,7 +19,6 @@ namespace UPT.Model
         {
             this.Customers = new HashSet<Customers>();
             this.Invoices = new HashSet<Invoices>();
-            this.SecurityKeys = new HashSet<SecurityKeys>();
         }
     
         public int UserID { get; set; }
@@ -32,8 +31,6 @@ namespace UPT.Model
         public virtual ICollection<Customers> Customers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Invoices> Invoices { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SecurityKeys> SecurityKeys { get; set; }
         public virtual UserRoles UserRoles { get; set; }
     }
 }

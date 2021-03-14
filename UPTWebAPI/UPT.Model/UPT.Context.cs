@@ -33,8 +33,6 @@ namespace UPT.Model
         public virtual DbSet<InvoiceStatuses> InvoiceStatuses { get; set; }
         public virtual DbSet<InvoiceTypes> InvoiceTypes { get; set; }
         public virtual DbSet<PaymentTypes> PaymentTypes { get; set; }
-        public virtual DbSet<SecurityKeys> SecurityKeys { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<UserRoles> UserRoles { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }

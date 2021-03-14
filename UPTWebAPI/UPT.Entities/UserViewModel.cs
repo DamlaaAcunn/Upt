@@ -27,7 +27,7 @@ namespace UPT.Entities
         public string InvoiceTitle{ get; set; }
         public string InvoiceDescription { get; set; }
         public int Unit { get; set; }
-        public decimal? Price { get; set; }
+        public decimal Price { get; set; }
         public decimal VatRatio { get; set; }
         public decimal? Deposit { get; set; }
         public string IsDepositPayment { get; set; }

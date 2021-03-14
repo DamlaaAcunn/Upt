@@ -21,7 +21,8 @@ namespace UPTWebAPI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             UnityConfig.RegisterComponents();
-            InvoicesScheduler.InvoicesJobScheduler();
+            
+            //InvoicesScheduler.InvoicesJobScheduler();
         }
     }
 }

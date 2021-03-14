@@ -30,7 +30,7 @@ namespace UPTWebAPI.Controllers
             }
             catch (Exception excp)
             {
-
+                Console.WriteLine(excp.Message);
             }
             return null;
         }
@@ -50,7 +50,7 @@ namespace UPTWebAPI.Controllers
             }
             catch (Exception exp)
             {
-
+                Console.Write(exp.Message);
             }
             return Json(response);
         }

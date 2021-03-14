@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Damla\Github\UPT\UPTWebAPI\UPT.Model\UPT.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Damla\Github\UPT\Upt\UPTWebAPI\UPT.Model\UPT.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

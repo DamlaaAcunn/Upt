@@ -11,27 +11,53 @@ namespace UPT.Services
 {
     public class InvoicesService : IInvoicesService
     {
+        public void CreateExtract()
+        {
+            //Her ay sonundan 2 gün önce ekstre kesilme işlemi
+            DateTime date = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, 1).AddDays(-2);
+            if (DateTime.Now >= date)
+            {
+                using (UPTEntities dbContext = new UPTEntities())
+                {
+                    //Ay sonunda Fatura tablosuna kayıt atar
+
+                    //Aktif olan aboneleri çek 
+
+                    var customer = dbContext.Customers.Where(x => x.CustomerStatusID == 1).ToList();
+
+                    foreach (var item in customer)
+                    {
+                        var invoices = dbContext.Invoices.Where(x => x.CustomerID == item.CustomerID).FirstOrDefault();
+                        //Sabit fiyat üzerinden olduğu için bu tablodaki son kayıtta bulunan fiyatı aldım.Tabloyu kullanabilmek adına yaptım bunu.
+                        var newInvoices = InvoicesInsert(invoices);
+                    }
+                }
+            }
+        }
         public void InsertInvoices()
         {
-            using (UPTEntities dbContext = new UPTEntities())
+            DateTime date = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, 1).AddDays(-2);
+            if (DateTime.Now >= date)
             {
-                //Ay sonunda Fatura tablosuna kayıt atar
-
-                //Aktif olan aboneleri çek 
-
-                var customer = dbContext.Customers.Where(x => x.CustomerStatusID == 1).ToList();
-
-                foreach (var item in customer)
+                using (UPTEntities dbContext = new UPTEntities())
                 {
-                    var invoices = dbContext.Invoices.Where(x => x.CustomerID == item.CustomerID).FirstOrDefault();
-                    //Sabit fiyat üzerinden olduğu için bu tablodaki son kayıtta bulunan fiyatı aldım.Tabloyu kullanabilmek adına yaptım bunu.
-                    var newInvoices = InvoicesInsert(invoices);
-                }
+                    //Ay sonunda Fatura tablosuna kayıt atar
 
+                    //Aktif olan aboneleri çek 
+
+                    var customer = dbContext.Customers.Where(x => x.CustomerStatusID == 1).ToList();
+
+                    foreach (var item in customer)
+                    {
+                        var invoices = dbContext.Invoices.Where(x => x.CustomerID == item.CustomerID).FirstOrDefault();
+                        //Sabit fiyat üzerinden olduğu için bu tablodaki son kayıtta bulunan fiyatı aldım.Tabloyu kullanabilmek adına yaptım bunu.
+                        var newInvoices = InvoicesInsert(invoices);
+                    }
+                }
             }
         }
         public List<UserViewModel> GetInvoices(UserViewModel userViewModel)
-        {
+        {//ödenmemiş faturaları getirir
             List<UserViewModel> userList = new List<UserViewModel>();
             using (UPTEntities dbContext = new UPTEntities())
             {
@@ -41,7 +67,6 @@ namespace UPT.Services
                 {
                     foreach (var item in invoices)
                     {
-                       // var invoicesLines = dbContext.InvoiceLines.Where(x => x.InvoiceID == item.InvoiceID).FirstOrDefault();
                         UserViewModel user = new UserViewModel();
                         user.CustomerId = customer.CustomerID;
                         user.InvoicesId = item.InvoiceID;
@@ -62,7 +87,7 @@ namespace UPT.Services
             return userList;
         }
         public List<UserViewModel> GetExtract(UserViewModel userViewModel)
-        {
+        {//Fatura ödeme servisi
             List<UserViewModel> userList = new List<UserViewModel>();
             using (UPTEntities dbContext = new UPTEntities())
             {
@@ -93,7 +118,7 @@ namespace UPT.Services
             return userList;
         }
         public Invoices InvoicesInsert(Invoices invoices)
-        {  
+        {
             Invoices newInvoices = new Invoices();
             using (UPTEntities dbContext = new UPTEntities())
             {
@@ -111,6 +136,6 @@ namespace UPT.Services
             }
             return invoices;
         }
-        
+
     }
 }

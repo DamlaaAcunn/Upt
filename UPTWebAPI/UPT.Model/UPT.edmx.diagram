@@ -4,20 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4be95a8cdd044ba3a951ad9b04404901" Name="Diagram1">
-        <EntityTypeShape EntityType="UPTModel.Customers" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="UPTModel.CustomerStatuses" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="UPTModel.CustomerTypes" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UPTModel.Deposit" Width="1.5" PointX="7.5" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="UPTModel.Invoices" Width="1.5" PointX="10.5" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="UPTModel.InvoiceStatuses" Width="1.5" PointX="8.25" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="UPTModel.InvoiceTypes" Width="1.5" PointX="8.25" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="UPTModel.PaymentTypes" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="UPTModel.SecurityKeys" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="UPTModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UPTModel.UserRoles" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="UPTModel.Users" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+      <Diagram DiagramId="c2e7a54a59204ff18fb58a519bbbcf9c" Name="Diagram1">
+        <EntityTypeShape EntityType="UPTModel.Customers" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UPTModel.CustomerStatuses" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UPTModel.CustomerTypes" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UPTModel.Deposit" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UPTModel.Invoices" Width="1.5" PointX="10.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UPTModel.InvoiceStatuses" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UPTModel.InvoiceTypes" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UPTModel.PaymentTypes" Width="1.5" PointX="8.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UPTModel.UserRoles" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UPTModel.Users" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
         <AssociationConnector Association="UPTModel.FK_Customers_CustomerStatuses" ManuallyRouted="false" />
+        <AssociationConnector Association="UPTModel.FK_Customers_CustomerTypes" ManuallyRouted="false" />
         <AssociationConnector Association="UPTModel.FK_Customers_Users" ManuallyRouted="false" />
         <AssociationConnector Association="UPTModel.FK_Deposit_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="UPTModel.FK_Invoices_Customers" ManuallyRouted="false" />
@@ -25,7 +24,6 @@
         <AssociationConnector Association="UPTModel.FK_Invoices_InvoiceTypes" ManuallyRouted="false" />
         <AssociationConnector Association="UPTModel.FK_Invoices_PaymentTypes" ManuallyRouted="false" />
         <AssociationConnector Association="UPTModel.FK_Invoices_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="UPTModel.FK_SecurityKeys_Users" ManuallyRouted="false" />
         <AssociationConnector Association="UPTModel.FK_Users_UserRoles" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

@@ -37,7 +37,7 @@ namespace UPTWebAPI.Controllers
             }
             catch (Exception exp)
             {
-
+                Console.Write(exp.Message);
             }
             return Json(response);
         }
